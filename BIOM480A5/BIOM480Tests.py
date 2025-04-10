@@ -27,6 +27,7 @@
 import numpy as np
 from scipy import stats
 
+
 # Example will present on the topic of t-test, creating function named 'ttest'
 def ttest(a, b):
     '''
@@ -143,6 +144,15 @@ def ttest(a, b):
 
 #*********************
 # Chris RT will present on the topic of Fligner-Killeen test, creating function named 'fligner_killeen' 
+
+def run_fligner_test(*groups):
+    if len(groups) < 2:
+        raise ValueError("Requires 2 or more groups for the test.")
+    
+    stat, p_value = stats.fligner(*groups)
+    return {
+        'p_value': p_value
+    }
 
 #*********************
 # Mariana S will present on the topic of Point-Biserial correlation test, creating function named 'pointbiserialr' 
